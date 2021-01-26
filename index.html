@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sketches</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+
+<body>
+    <h1>sketches</h1>
+    <p>a collection of sketches made using code</p>
+    <p><em>every sketch has a hint of randomness, make sure to click 'restart' to see different versions!</em></p>
+    <p>by graham smith</p>
+
+    <div>
+
+    </div>
+
+    <script>
+        const sketches = 4;
+        for (let i = 1; i < sketches + 1; i++) {
+            let num = ''
+            if (i < 10) {
+                num += 0 + '' + i;
+            }
+            else {
+                num += i;
+            }
+            document.querySelector('div').innerHTML += `
+            <p class="clickable"><a href="/sketch_${num}/index.html">sketch ${num}</a></p>
+            `;
+        }
+    </script>
+</body>
+
+</html>
