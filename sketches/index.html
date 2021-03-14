@@ -18,9 +18,11 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const sketchNum = urlParams.get("sketch");
+        const isDark = urlParams.get("dark");
         const sketch = document.createElement("script");
         sketch.setAttribute("src", `sketch${sketchNum}.js`);
         document.querySelector("body").appendChild(sketch);
+        document.querySelector("body").style.backgroundColor = isDark ? "black" : "white";
     </script>
 </body>
 
