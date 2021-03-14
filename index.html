@@ -9,28 +9,46 @@
 </head>
 
 <body>
-    <h1>sketches</h1>
-    <p>a collection of sketches made using code</p>
-    <p><em>every sketch has a hint of randomness, make sure to click 'restart' to see different versions!</em></p>
-    <p>by graham smith</p>
-
-    <div>
-
-    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td>1/29/2021</td>
+                <td><a>sketch 07</a></td>
+            </tr>
+            <tr>
+                <td>1/28/2021</td>
+                <td><a>sketch 06</a></td>
+            </tr>
+            <tr>
+                <td>1/27/2021</td>
+                <td><a>sketch 05</a></td>
+            </tr>
+            <tr>
+                <td>11/6/2020</td>
+                <td><a>sketch 04</a></td>
+            </tr>
+            <tr>
+                <td>11/5/2020</td>
+                <td><a>sketch 03</a></td>
+            </tr>
+            <tr>
+                <td>11/4/2020</td>
+                <td><a>sketch 02</a></td>
+            </tr>
+            <tr>
+                <td>11/3/2020</td>
+                <td><a>sketch 01</a></td>
+            </tr>
+        </tbody>
+    </table>
 
     <script>
-        const sketches = 8;
-        for (let i = 1; i < sketches + 1; i++) {
-            let num = ''
-            if (i < 10) {
-                num += 0 + '' + i;
-            }
-            else {
-                num += i;
-            }
-            document.querySelector('div').innerHTML += `
-            <p class="clickable"><a href="./sketch_${num}/index.html">sketch ${num}</a></p>
-            `;
+        let rows = document.querySelector("tbody").children;
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].querySelector("a").setAttribute(
+                "href",
+                `./sketches/index.html?sketch=${rows.length - i}`
+            );
         }
     </script>
 </body>
