@@ -29,9 +29,15 @@ function setup() {
 
   let steps = 100;
   let colors = ['#8ecae6', '#219ebc', '#023047', '#ffb703', '#fb8500'];
-  for (let i = 0; i < windowWidth; i += steps) {
+  let prevCol = '';
+	for (let i = 0; i < windowWidth; i += steps) {
     for (let j = 0; j < windowHeight; j += steps) {
-      ls.push(new L(i, j, colors[Math.floor(random(0, 5))]));
+			let col = Math.floor(random(0, 5));
+			while (col == prevCol) {
+				col = Math.floor(random(0, 5));
+			}
+      ls.push(new L(i, j, colors[col]));
+			prevCol = col;
     }
   }
 }
