@@ -27,7 +27,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
 
-  let steps = 100;
+  let steps = 200;
   let colors = ['#8ecae6', '#219ebc', '#023047', '#ffb703', '#fb8500'];
   let prevCol = '';
 	for (let i = 0; i < windowWidth; i += steps) {
