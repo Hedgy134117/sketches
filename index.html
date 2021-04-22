@@ -8,6 +8,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    
+    <script src="./p5.js"></script>
 
     <title>sketches</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -18,6 +20,37 @@
         h1 {
             font-family: 'Roboto', sans-serif;
             padding: 1em;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100vh;
+        }
+
+        #main {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+        }
+
+        #main div {
+          background-color: white;
+          padding: 24px;
+          border-radius: 6px;
+          box-shadow: 0px 0px 6px 0px lightgray;
+        }
+
+        canvas {
+          filter: blur(5px);
+          z-index: -1;
+          position: fixed;
+          top: 0;
+          left: 0;
         }
     </style>
 </head>
@@ -89,6 +122,11 @@
                 `./sketches/index.html?sketch=${rows.length - i}`
             );
         }
+        
+        let bg = document.createElement("script");
+        let sketchNum = Math.floor(Math.random() * rows.length) + 1;
+        bg.setAttribute("src", `./sketches/sketch${sketchNum}.js`);
+        document.querySelector("body").appendChild(bg);
     </script>
 </body>
 
