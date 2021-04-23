@@ -25,7 +25,7 @@ class Flow {
 
 
 let f = [];
-let steps = 100;
+let steps = 200;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < width; i += steps) {
