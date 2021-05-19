@@ -1,10 +1,9 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // frameRate(10);
 }
 
 let angle = 0;
-let step = 5;
+let step = 10;
 let crandom;
 let prandom;
 let iters = [];
@@ -20,6 +19,7 @@ class Iteration {
   
   display() {
     stroke(this.r, this.g, this.b, this.a);
+    
     for (let i = 0; i < this.points.length - 1; i++) {
       line(
         this.points[i].x, this.points[i].y,
@@ -29,19 +29,26 @@ class Iteration {
       this.points[i + 1].y -= 4;
     }
     
+    
+    
     this.a -= 20;
     
     if (this.a <= 0) {
       iters.splice(iters.indexOf(this), 1);
     }
+    
+    
   }
 }
 
 function draw() {
   background(0);
+  
   for (let iter of iters) {
     iter.display();
   }
+  
+  
   
   
   let s1 = 128 + noise(angle) * 128;
@@ -69,7 +76,8 @@ function draw() {
     });
     
     prandom = crandom;
-    angle += 1 / 50000; // speed
+    angle += 1 / 30000; // speed
   }
+  
   iters.push(curIter);
 }
