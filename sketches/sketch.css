@@ -1,0 +1,30 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+a, a:visited {
+  color: lightseagreen;
+  text-decoration: none;
+}
+
+.back {
+  filter: opacity(0.5);
+  margin: 1em;
+  background-color: white;
+  position: absolute;
+  transition: 100ms;
+}
+.back:hover {
+  filter: opacity(1);
+}
+.back a {
+  padding: 1em;
+}
