@@ -1,0 +1,27 @@
+.sketch {
+  position: relative;
+}
+.sketch__info {
+  display: none;
+  pointer-events: none; /* prevent flickering text when hovering over img */
+}
+.sketch__preview {
+  width: 100%;
+  transition: 100ms;
+}
+.sketch__preview:hover {
+  filter: opacity(0.2);
+}
+.sketch__preview:hover + .sketch__info { /* show info on hover of image*/
+  display: block;
+  position: absolute;
+  text-align: end;
+  bottom: 1em;
+  right: 1em;
+}
+.info__name {
+  margin: 1em 1em 0 1em;
+}
+.info__date {
+  margin: 0 1em 1em 1em;
+}
