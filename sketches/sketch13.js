@@ -9,7 +9,7 @@ let c = false;
 function draw() {
   noFill();
   stroke(255 * noise(off), 20);
-	beginShape();
+  beginShape();
   for (let i = 0; i < iters; i++) {
     curveVertex(width * noise(off + pow(2, i)), height * noise(off + pow(2, i + 1)));
   }

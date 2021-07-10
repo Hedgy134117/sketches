@@ -33,7 +33,7 @@ class Strand {
             this.velX -= 0.1;
         }
 
-        if (this.x > windowWidth || this.x < 0 || this.y > windowHeight || this.y < 0) {
+        if (this.x > width || this.x < 0 || this.y > height || this.y < 0) {
             strands = strands.filter(stand => stand != this);
             // strands.push(new Strand(this.startingX + randRange(-100, 100), this.startingY + randRange(-100, 100)));
             strands.push(new Strand(this.x, this.y, this.r, this.g, this.b));
@@ -47,7 +47,7 @@ function setup() {
     for (let i = 0; i < max; i++) {
         strands.push(
             new Strand(
-                windowWidth / 2, windowHeight / 2,
+                width / 2, height / 2,
             )
         )
     }

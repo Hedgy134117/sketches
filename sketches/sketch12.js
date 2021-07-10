@@ -8,7 +8,7 @@ class L {
     this.dy = random(5, 50);
     this.col = col;
   }
-  
+
   display() {
     strokeWeight(5);
     stroke(this.col);
@@ -21,7 +21,7 @@ class L {
   }
 }
 
-let a ;
+let a;
 let ls = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -30,14 +30,14 @@ function setup() {
   let steps = 200;
   let colors = ['#8ecae6', '#219ebc', '#023047', '#ffb703', '#fb8500'];
   let prevCol = '';
-	for (let i = 0; i < windowWidth; i += steps) {
-    for (let j = 0; j < windowHeight; j += steps) {
-			let col = Math.floor(random(0, 5));
-			while (col == prevCol) {
-				col = Math.floor(random(0, 5));
-			}
+  for (let i = 0; i < width; i += steps) {
+    for (let j = 0; j < height; j += steps) {
+      let col = Math.floor(random(0, 5));
+      while (col == prevCol) {
+        col = Math.floor(random(0, 5));
+      }
       ls.push(new L(i, j, colors[col]));
-			prevCol = col;
+      prevCol = col;
     }
   }
 }
@@ -47,6 +47,6 @@ function draw() {
   // background('rgba(200, 200, 200, 0.01)');
   // blendMode(BLEND);
   for (let l of ls) {
-    l.display();    
+    l.display();
   }
 }

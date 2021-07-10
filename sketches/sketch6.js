@@ -8,32 +8,32 @@ function setup() {
 let corner = { 'x': 0, 'y': 0 };
 let color = { 'r': 255, 'g': 255, 'b': 255 };
 function s() {
-    if (corner.x > windowWidth || corner.x < 0 || corner.y > windowHeight || corner.y < 0) {
-        corner.x = randRange(0, windowWidth);
-        corner.y = randRange(0, windowHeight);
+    if (corner.x > width || corner.x < 0 || corner.y > height || corner.y < 0) {
+        corner.x = randRange(0, width);
+        corner.y = randRange(0, height);
         color.r = randRange(128, 256);
         color.g = randRange(128, 256);
         color.b = randRange(128, 256);
     }
 
     fill(...Object.values(color));
-    let width = randRange(10, 50);
-    let height = randRange(10, 50);
-    rect(corner.x, corner.y, width, height);
+    let w = randRange(10, 50);
+    let h = randRange(10, 50);
+    rect(corner.x, corner.y, w, h);
 
     let rand = Math.round(Math.random() * 10);
     if (rand >= 0 && rand < 1) {
-        corner.x += width;
-        corner.y += height;
+        corner.x += w;
+        corner.y += h;
     }
     else if (rand >= 1 && rand < 2) {
-        corner.x += width;
+        corner.x += w;
     }
     else if (rand >= 2 && rand < 3) {
-        corner.y -= height;
+        corner.y -= h;
     }
     else if (rand >= 3 && rand < 4) {
-        corner.x -= width;
+        corner.x -= w;
     }
 }
 

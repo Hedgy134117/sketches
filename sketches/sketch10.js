@@ -22,15 +22,15 @@ class Branch {
     }
 
     update() {
-        if (this.y < 0 || this.y > windowHeight || this.x > windowWidth || this.x < 0) {
+        if (this.y < 0 || this.y > height || this.x > width || this.x < 0) {
             branches = branches.filter(branch => branch != this);
             if (
                 (this.x + this.startingX) / 2 <= 0 ||
-                (this.x + this.startingX) / 2 >= windowWidth ||
+                (this.x + this.startingX) / 2 >= width ||
                 (this.y + this.startingY) / 2 <= 0 ||
-                (this.y + this.startingY) / 2 >= windowHeight) {
+                (this.y + this.startingY) / 2 >= height) {
                 branches.push(new Branch(
-                    windowWidth / 2, windowHeight / 2,
+                    width / 2, height / 2,
                     this.r, this.g, this.b
                 ));
             }
@@ -52,7 +52,7 @@ function setup() {
     let max = 40;
     for (let i = 0; i < max; i++) {
         branches.push(new Branch(
-            windowWidth / 2, windowHeight / 2
+            width / 2, height / 2
         ));
     }
 }

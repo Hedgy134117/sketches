@@ -5,7 +5,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     strokeWeight(0)
     for (let i = 0; i < Math.floor(randRange(1, 8)); i++) {
-        let newCluster = new Cluster(randRange(0, windowWidth), randRange(0, windowHeight));
+        let newCluster = new Cluster(randRange(0, width), randRange(0, height));
         clusters.push(newCluster);
     }
 }
@@ -35,9 +35,9 @@ class Cluster {
     }
 
     reset() {
-        if (this.x < 0 || this.x > windowWidth || this.y < 0 || this.y > windowHeight) {
-            this.x = randRange(0, windowWidth);
-            this.y = randRange(0, windowHeight);
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+            this.x = randRange(0, width);
+            this.y = randRange(0, height);
         }
     }
 }

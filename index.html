@@ -157,20 +157,21 @@
 	</div>
 
 	<script>
+		window.location.href = "./new.html";
 		let rows = document.querySelector("tbody").children;
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].querySelector("a").setAttribute(
-                "href",
-                `./sketches/index.html?sketch=${rows.length - i}`
-            );
-        }
-        
-        if (!(/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-            let bg = document.createElement("script");
-            let sketchNum = Math.floor(Math.random() * rows.length) + 1;
-            bg.setAttribute("src", `./sketches/sketch${sketchNum}.js`);
-            document.querySelector("body").appendChild(bg);
-        }
+		for (let i = 0; i < rows.length; i++) {
+			rows[i].querySelector("a").setAttribute(
+				"href",
+				`./sketches/index.html?sketch=${rows.length - i}`
+			);
+		}
+
+		if (!(/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+			let bg = document.createElement("script");
+			let sketchNum = Math.floor(Math.random() * rows.length) + 1;
+			bg.setAttribute("src", `./sketches/sketch${sketchNum}.js`);
+			document.querySelector("body").appendChild(bg);
+		}
 	</script>
 </body>
 

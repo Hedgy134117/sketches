@@ -1,6 +1,6 @@
 let hw, hh;
 let p, g;
-let cols = ["#264653","#2a9d8f","#e9c46a","#f4a261","#e76f51"];
+let cols = ["#264653", "#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   hw = width / 2;
@@ -16,7 +16,7 @@ class Grid {
   constructor(spacing) {
     this.spacing = spacing;
     this.grid = {}
-  
+
     let i = 0;
     let j = 0;
     for (let y = 0; y <= height; y += this.spacing) {
@@ -24,7 +24,7 @@ class Grid {
         // let noiseVal = noise(x * 0.03, y * 0.03);
         let noiseVal = noise(i, j);
         this.grid[[x, y]] = noiseVal;
-      	i += 0.005;
+        i += 0.005;
       }
       j += 0.003;
     }
@@ -51,7 +51,7 @@ class Grid {
       }
     }
   }
-  
+
   getQuad(xPos, yPos) {
     for (let y = 0; y <= height; y += this.spacing) {
       for (let x = 0; x <= width; x += this.spacing) {
@@ -61,7 +61,7 @@ class Grid {
         else if (
           xPos < x + this.spacing &&
           xPos > x &&
-          yPos < y + this.spacing && 
+          yPos < y + this.spacing &&
           yPos > y
         ) {
           return this.grid[[x, y]];
@@ -77,43 +77,43 @@ class Particle {
     this.y = random(0, height);
     this.velX = random(-5, 5);
     this.velY = random(-5, 5);
-		this.col = cols[0];
+    this.col = cols[0];
   }
-  
+
   display() {
     strokeWeight(10);
     stroke(this.col);
     point(this.x, this.y);
     this.update();
   }
-  
+
   update() {
     this.x += this.velX;
     this.y += this.velY;
     this.bounceIfOut();
     this.changeVel();
   }
-  
+
   changeVel() {
     let n = g.getQuad(this.x, this.y);
     if (n >= 0.6) {
       this.velX -= 0.5;
-			this.col = cols[0];
+      this.col = cols[0];
     }
     else if (n >= 0.5) {
       this.velX -= 0.1;
-			this.col = cols[1];
+      this.col = cols[1];
     }
     else if (n >= 0.4) {
       this.velX += 0.5;
-			this.col = cols[3];
+      this.col = cols[3];
     }
     else if (n >= 0) {
       this.velX += 0.1;
-			this.col = cols[4];
+      this.col = cols[4];
     }
   }
-  
+
   bounceIfOut() {
     if (this.x >= width) { // right
       this.velX = -5;
@@ -133,7 +133,7 @@ class Particle {
 function draw() {
   background(0);
   if (keyIsPressed) {
-    g.draw();    
+    g.draw();
   }
   for (let part of p) {
     part.display();

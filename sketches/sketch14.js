@@ -10,7 +10,7 @@ class Flow {
     this.b = random(255);
     this.div = random(30, 90);
   }
-  
+
   display() {
     stroke(this.r, this.g, this.b);
     line(

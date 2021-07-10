@@ -20,7 +20,7 @@ function setup() {
 			po.quad = q;
 			po.quad2 = q2;
 			p.push(po);
-		}	
+		}
 	}
 }
 
@@ -30,14 +30,14 @@ class Point {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	display() {
 		this.update();
 		strokeWeight(4);
 		stroke(this.col);
 		point(this.x, this.y);
 	}
-	
+
 	update() {
 		this.x = this.quad / 2 + noise(this.off) * this.quad / 2;
 		this.y = this.quad2 / 2 + noise(this.off + 2) * this.quad2 / 2;

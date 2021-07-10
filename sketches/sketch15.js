@@ -8,7 +8,7 @@ class Thing {
     this.off = random(0, 1000);
     this.inc = 1 / random([256, 512]);
   }
-  
+
   display() {
     let n = noise(this.off);
     let n2 = noise(this.off + 2);
@@ -16,19 +16,19 @@ class Thing {
     noFill();
     stroke(n * 256, n2 * 256, n3 * 256, 255);
     for (let i = 0; i < 100; i++) {
-      line(this.cx + cos(i) * r + n * r, 
-            this.cy + sin(i) * r + n2 * r,
-            this.cx + cos(i + this.za) * r + n * r, 
-            this.cy + sin(i + this.zb) * r + n2 * r
-           );  
+      line(this.cx + cos(i) * r + n * r,
+        this.cy + sin(i) * r + n2 * r,
+        this.cx + cos(i + this.za) * r + n * r,
+        this.cy + sin(i + this.zb) * r + n2 * r
+      );
     }
     this.za += n / 100;
     this.zb += n2 / 100;
     this.off += this.inc;
   }
-  
+
   update() {
-    
+
   }
 }
 

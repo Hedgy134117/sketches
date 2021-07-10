@@ -1,14 +1,14 @@
 let circs = [];
 let hw, hh;
-let colors = ["#ffadad","#ffd6a5","#fdffb6","#caffbf","#9bf6ff","#a0c4ff","#bdb2ff","#ffc6ff"];
+let colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   hw = width / 2;
   hh = height / 2;
   angleMode(DEGREES);
-  
-  
+
+
   let mode = ['s', 'c', 't']
   let modeX = mode[floor(random(0, mode.length))];
   let modeY = mode[floor(random(0, mode.length))];
@@ -19,8 +19,8 @@ function setup() {
     xoff = calculateOff(i, modeX) * hw / 4;
     yoff = calculateOff(i, modeY) * hh / 4;
     circs.push(new Circ(
-      xoff, 
-      yoff, 
+      xoff,
+      yoff,
       true, true, 0, i / 20, 20
     ));
   }
@@ -53,15 +53,15 @@ class Circ {
     this.size = size;
     this.xfunc = xp ? this.calcXPlu : this.calcXMin;
     this.yfunc = yp ? this.calcYPlu : this.calcYMin;
-	this.col = colors[floor(random(0, colors.length))];
+    this.col = colors[floor(random(0, colors.length))];
   }
-  
+
   display() {
     strokeWeight(this.size);
     stroke(this.col);
     line(this.x, this.y, this.px, this.py);
   }
-  
+
   update() {
     this.px = this.x;
     this.py = this.y;
@@ -69,21 +69,21 @@ class Circ {
     this.yfunc();
     this.i += 0.5;
   }
-  
+
   calcXPlu() {
     this.x = hw + this.xoff - sin(this.i * this.speed) * (hw - this.xoff - this.size / 2);
   }
-  
+
   calcXMin() {
     this.x = hw - this.xoff - sin(this.i * this.speed) * (hw - this.xoff - this.size / 2);
   }
-  
+
   calcYPlu() {
-    this.y = hh + this.yoff + cos(this.i * this.speed) * (hh - this.yoff - this.size / 2);    
+    this.y = hh + this.yoff + cos(this.i * this.speed) * (hh - this.yoff - this.size / 2);
   }
-  
+
   calcYMin() {
-    this.y = hh - this.yoff - cos(this.i * this.speed) * (hh - this.yoff - this.size / 2);    
+    this.y = hh - this.yoff - cos(this.i * this.speed) * (hh - this.yoff - this.size / 2);
   }
 }
 

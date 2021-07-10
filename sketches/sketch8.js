@@ -30,7 +30,7 @@ function setup() {
         // let x1 = randRange(0, 400);
         // let x2 = 400 - i;
         let x1 = 0;
-        let x2 = windowWidth;
+        let x2 = width;
         let y = randRange(50, 350);
         lines.push(new lerpedLine(x1, x2, y));
     }
