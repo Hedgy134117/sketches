@@ -11,18 +11,47 @@
 
     <title>sketch</title>
     <script src="../p5.js"></script>
-    <link rel="stylesheet" href="../style.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
+
+
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const sketchNum = urlParams.get("sketch");
-        const isDark = urlParams.get("dark");
-        const sketch = document.createElement("script");
-        sketch.setAttribute("src", `sketch${sketchNum}.js`);
-        document.querySelector("body").appendChild(sketch);
-        document.querySelector("body").style.backgroundColor = isDark ? "black" : "white";
+        async function loadInfo() {
+            let data = await fetch("./info.json");
+            data = await data.json();
+            console.log(data);
+            return data;
+        }
+
+        function loadSketch() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let sketchName = urlParams.get("sketch");
+            sketchName = sketchName.replaceAll(" ", "_");
+            console.log(sketchName);
+            const isDark = urlParams.get("dark");
+            const sketch = document.createElement("script");
+            sketch.setAttribute("src", `code/${sketchName}.js`);
+            document.querySelector("body").appendChild(sketch);
+            document.querySelector("body").style.backgroundColor = isDark ? "black" : "white";
+        }
+        loadSketch();
+
+        window.onload = async () => {
+            await loadInfo();
+        }
     </script>
 </body>
 
