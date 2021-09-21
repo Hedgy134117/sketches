@@ -8,7 +8,7 @@ function setup() {
 
 function draw() {
   blendMode(DIFFERENCE);
-  background(255, 1);
+  background(1, 1, 1);
   blendMode(BLEND);
   for (let i = 0; i < 100; i++) {
     let n2 = noise(i + 2 + frameCount / 250) + 1;
