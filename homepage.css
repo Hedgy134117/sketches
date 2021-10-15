@@ -25,3 +25,33 @@
 .info__date {
   margin: 0 1em 1em 1em;
 }
+
+@media only screen and (max-width: 800px) {
+  main {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  main {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+  }
+  .sketch {
+    margin: 1em;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+  }
+  .sketch {
+    margin: 1em;
+  }
+}
