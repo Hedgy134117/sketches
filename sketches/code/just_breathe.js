@@ -1,6 +1,6 @@
 let hw, hh;
 function setup() {
-	createCanvas(400, 400);
+	createCanvas(windowWidth, windowHeight);
 	angleMode(DEGREES);
 	noFill();
 	hw = width / 2;
