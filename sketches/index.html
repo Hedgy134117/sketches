@@ -28,12 +28,16 @@
             const urlParams = new URLSearchParams(window.location.search);
             let sketchName = urlParams.get("sketch");
             sketchName = sketchName.replaceAll(" ", "_");
-            console.log(sketchName);
             const isDark = urlParams.get("dark");
             const sketch = document.createElement("script");
             sketch.setAttribute("src", `code/${sketchName}.js`);
             document.querySelector("body").appendChild(sketch);
             document.querySelector("body").style.backgroundColor = isDark ? "black" : "white";
+        
+            let nextUrl = urlParams.get("next");
+            if (nextUrl != null) {
+                document.querySelector(".back a").href = `../years/${nextUrl}/`;
+            }
         }
         loadSketch();
 
