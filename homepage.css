@@ -1,16 +1,17 @@
 .sketch {
   position: relative;
+  border: 1em solid black;
 }
 .sketch__info {
   display: none;
   pointer-events: none; /* prevent flickering text when hovering over img */
+  color: white;
 }
 .sketch__preview {
-  width: 100%;
   transition: 100ms;
 }
 .sketch__preview:hover {
-  filter: opacity(0.2);
+  filter: opacity(0.5);
 }
 .sketch__preview:hover + .sketch__info { /* show info on hover of image*/
   display: block;
@@ -28,30 +29,24 @@
 
 @media only screen and (max-width: 800px) {
   main {
-    width: 50%;
+    width: 100%;
   }
 }
 
 @media only screen and (min-width: 800px) {
   main {
-    width: 70%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-  }
-  .sketch {
-    margin: 1em;
   }
 }
 
 @media only screen and (min-width: 1000px) {
   main {
-    width: 70%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
-  }
-  .sketch {
-    margin: 1em;
   }
 }
